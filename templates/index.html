@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="card shadow-lg p-5" style="max-width: 480px; width: 100%; border-radius: 1.5rem; background: rgba(255,255,255,0.93);">
+        <div class="text-center mb-4">
+            <i class="bi bi-stars" style="font-size: 3rem; color: #415a77;"></i>
+            <h2 class="mt-2 mb-3" style="font-family: 'Segoe UI', 'Roboto', Arial, sans-serif; font-weight:700; color:#1b263b;">Welcome to <span style="color:#415a77;">AI Recruit</span></h2>
+            <p class="lead" style="color:#415a77;">Empowering smarter hiring with AI-driven candidate matching and professional workflows.</p>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <a href="{{ url_for('register') }}" class="btn btn-success px-4 py-2" style="font-weight:600; border-radius:0.5rem;">Get Started</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-primary px-4 py-2" style="font-weight:600; border-radius:0.5rem;">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

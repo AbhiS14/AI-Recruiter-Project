@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5" style="background: linear-gradient(135deg, #e0e7ef 0%, #f8fafc 100%); border-radius: 1rem;">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h2 class="mb-4 text-center" style="color: #1b263b;">Job Listings</h2>
+            <div class="row g-4">
+                {% for job in jobs %}
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100" style="border-radius: 1rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" style="margin-bottom: 1.5rem;">
+                                <span style="
+                                    display: inline-block;
+                                    background: linear-gradient(90deg, #415a77 0%, #78a1bb 100%);
+                                    color: #fff;
+                                    border-radius: 0.7rem;
+                                    padding: 0.5em 1.2em;
+                                    font-size: 1.2em;
+                                    font-weight: 700;
+                                    letter-spacing: 0.5px;
+                                    box-shadow: 0 2px 12px rgba(65,90,119,0.12);
+                                    border: 2px solid #1b263b;">
+                                    <i class="bi bi-person-badge me-1" style="color:#fff;"></i>
+                                    {{ job[1]|title }}
+                                </span>
+                            </h5>
+                            <p class="card-text" style="color: #415a77;">{{ job[2] }}</p>
+                            <form method="POST" action="{{ url_for('apply_job', job_id=job[0]) }}">
+                                <button type="submit"
+                                    class="w-100"
+                                    style="
+                                        border-radius: 0.7rem;
+                                        font-weight: 700;
+                                        background: linear-gradient(90deg, #415a77 0%, #78a1bb 100%);
+                                        color: #fff;
+                                        border: 2px solid #1b263b;
+                                        box-shadow: 0 4px 16px rgba(65,90,119,0.13);
+                                        letter-spacing: 0.5px;
+                                        padding: 0.85em 0;
+                                        font-size: 1.15em;
+                                        transition: transform 0.1s, box-shadow 0.1s;"
+                                    onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 24px rgba(65,90,119,0.18)';"
+                                    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(65,90,119,0.13)';"
+                                >
+                                    <i class="bi bi-send-fill me-1"></i>Apply
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

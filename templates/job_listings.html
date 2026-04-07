@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5" style="background: linear-gradient(135deg, #e0e7ef 0%, #f8fafc 100%); border-radius: 1rem;">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h2 class="mb-4 text-center" style="color: #1b263b; font-weight: 700; letter-spacing: 1px;">
+                <i class="bi bi-briefcase-fill me-2" style="color:#415a77;"></i>Job Listings
+            </h2>
+            <div class="row g-4">
+                {% for job in jobs %}
+                <div class="col-md-6">
+                    <div class="card shadow-sm h-100" style="border-radius: 1rem;">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex align-items-center" style="color: #1b263b; font-weight: 600; font-size: 1.25rem; letter-spacing: 0.5px;">
+                                <span style="background: linear-gradient(90deg, #e0e7ef 0%, #415a77 100%); color: #1b263b; border-radius: 0.5rem; padding: 0.35em 0.9em; margin-right: 0.5em; font-size: 1.1em; box-shadow: 0 2px 8px rgba(65,90,119,0.08); border: 1px solid #415a77;">
+                                    <i class="bi bi-person-badge me-1" style="color:#415a77;"></i>
+                                    {{ job[1]|title }}
+                                </span>
+                            </h5>
+                            <p class="card-text" style="color: #415a77;">{{ job[2] }}</p>
+                            <form method="POST" action="{{ url_for('apply_job', job_id=job[0]) }}">
+                                <button type="submit" class="btn btn-success w-100" style="border-radius: 0.5rem; font-weight: 600;">
+                                    <i class="bi bi-send-fill me-1"></i>Apply
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

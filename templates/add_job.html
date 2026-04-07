@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-lg-8">
+        <div class="card shadow-lg p-5 mb-4" style="border-radius: 1.5rem; background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);">
+            <div class="text-center mb-4">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"
+                     style="height: 90px; margin-bottom: 10px; border-radius: 1.2rem; box-shadow: 0 4px 24px rgba(65,90,119,0.13); object-fit: contain;">
+            </div>
+            <h2 class="text-center mb-4" style="color: #1b263b; font-weight: 700; letter-spacing: 1px;">Add Job</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label" style="color: #415a77; font-weight: 500;">Job Title</label>
+                     <input type="text" name="title" class="form-control" required
+                         style="border-radius: 0.5rem; font-size: 1.25em; padding: 1.1em 1em; min-height: 60px; width: 100%; letter-spacing: 1px;"/>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="color: #415a77; font-weight: 500;">Description</label>
+                    <textarea name="description" class="form-control" rows="3" required style="border-radius: 0.5rem;"></textarea>
+                </div>
+                <button type="submit"
+                        class="btn w-100 py-2 mb-3"
+                        style="
+                            background: linear-gradient(90deg, #232526 0%, #414345 100%);
+                            color: #fff;
+                            border: none;
+                            border-radius: 0.7rem;
+                            font-weight: 700;
+                            letter-spacing: 1px;
+                            font-size: 1.15em;
+                            box-shadow: 0 4px 16px rgba(30,30,30,0.13);
+                            transition: transform 0.1s, box-shadow 0.1s;
+                        "
+                        onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 24px rgba(30,30,30,0.18)';"
+                        onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(30,30,30,0.13)';"
+                >
+                    <i class="bi bi-plus-circle me-1"></i>Add Job
+                </button>
+            </form>
+        </div>
+        {% if jobs_posted %}
+        <hr class="my-4" style="border-top: 2px solid #e0e7ef;">
+        <div class="card shadow-lg p-4" style="border-radius: 1.5rem; background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);">
+            <h4 class="mb-3 text-center" style="color: #1b263b; font-weight: 600;">Jobs Posted</h4>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle" style="border-radius: 0.7rem; overflow: hidden;">
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="width: 30%;">Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for job in jobs_posted %}
+                        <tr>
+                            <td style="font-weight: 500; color: #415a77;">{{ job[1] }}</td>
+                            <td style="color: #222;">{{ job[2] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="{{ url_for('dashboard') }}"
+           class="btn w-100 mt-3"
+           style="
+                background: #111;
+                color: #fff;
+                border: none;
+                border-radius: 0.7rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-size: 1.08em;
+                box-shadow: 0 2px 8px rgba(30,30,30,0.10);
+                transition: background 0.15s, color 0.15s;">
+            <i class="bi bi-arrow-left"></i> Back
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

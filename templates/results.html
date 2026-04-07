@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Results</h2>
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Candidate</th>
+                <th>Filename</th>
+                <th>Keywords</th>
+                <th>Skill Score</th>
+                <th>Cultural Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

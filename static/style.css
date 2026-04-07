@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 40px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.btn.logout {
+    background-color: #e74c3c;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="password"], select {
+    padding: 8px;
+    width: 200px;
+}
+
+input[type="submit"] {
+    padding: 8px 16px;
+    margin-top: 10px;
+}
+.login-bg {
+    min-height: 100vh;
+    background: url('../static/login-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.register-bg {
+    min-height: 100vh;
+    background: url('../static/register-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.index-bg {
+    min-height: 100vh;
+    background: url('../static/index-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.dashboard-bg {
+    min-height: 100vh;
+    background: url('../static/dashboard-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.jobs-bg {
+    min-height: 100vh;
+    background: url('../static/jobs-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.jobs-list-bg {
+    min-height: 100vh;
+    background: url('../static/jobs-list-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.upload-bg {
+    background: url('/static/upload-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
